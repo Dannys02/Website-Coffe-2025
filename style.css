@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -19,8 +20,8 @@
     position: fixed;
     left: 5%;
     bottom: 4%;
-    height: 130px;
-    width: 130px;
+    height: 90px;
+    width: 90px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -40,12 +41,12 @@
     position: absolute;
     top: 0;
     right: 5px;
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
     font-weight: 600;
     background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +61,7 @@
 }
 
 .cart-container i {
-    transform: scale(3);
+    transform: scale(2);
     color: var(--accent-color);
 }
 
@@ -73,7 +74,7 @@
     .cart-container span {
         height: 16px;
         width: 16px;
-        font-size: 9px;
+        font-size: 10px;
     }
     
     .cart-container i {
@@ -137,15 +138,16 @@ ul {
     color: var(--dark-color);
 }
 
-/* Header */
 header {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    border-radius: 50px;
     z-index: 1000;
 }
 
@@ -181,7 +183,7 @@ header {
     position: relative;
     padding-bottom: 5px;
     font-weight: 500;
-    color: var(--accent-color);
+    color: black;
     transition: color 0.3s ease;
 }
 
@@ -207,6 +209,17 @@ header {
     font-size: 24px;
     cursor: pointer;
     color: var(--secondary-color);
+}
+
+.login-icon {
+    font-size: 20px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.login-icon i {
+    padding-bottom: 4px;
+    border-bottom: 2px solid black;
 }
 
 /* Hero Section */
@@ -369,6 +382,54 @@ header {
     font-size: 1.2rem;
 }
 
+.menu-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-buy,
+.btn-cart {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+#hpsBtn {
+    display: none;
+}
+
+.btn-buy {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.btn-buy:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-cart {
+    background-color: var(--light-color);
+    color: var(--accent-color);
+}
+
+.btn-cart:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    border-color: var(--secondary-color);
+}
+
+.coffee-buttons i {
+    font-size: 15px;
+}
+
 .testimonials {
     padding: 100px 0;
     background-color: var(--light-color);
@@ -387,7 +448,6 @@ header {
     display: none;
 }
 
-/* Elemen di dalam container */
 .testimonial {
     flex: 0 0 80%;
     text-align: center;
@@ -484,13 +544,19 @@ textarea.form-control {
 footer {
     background-color: var(--dark-color);
     color: white;
-    padding: 60px;
+    padding-block: 60px;
+    padding-inline: 0;
 }
 
 .footer-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
     gap: 30px;
+}
+
+#CoffeShop {
+    max-width: 220px;
 }
 
 .footer-col h4 {
@@ -553,42 +619,37 @@ footer {
     color: #ccc;
 }
 
-@media (max-width: 992px) {
-    
-    .about-content,
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-}
-
 @media (max-width: 768px) {
+    header {
+        top: 0;
+        left: 0;
+        transform: translateX(0);
+        width: 100%;
+        border-radius: 0;
+    }
+    
     .header-container {
         padding: 20px 10px;
     }
     
     .nav-menu {
         position: fixed;
-        top: 80px;
-        right: -100%;
-        background-color: white;
-        width: 80%;
-        height: calc(100vh - 80px);
+        top: -550%;
+        left: 0;
+        background: var(--primary-color);
+        width: 100%;
         flex-direction: column;
         padding: 40px;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
+        transition: top 0.3s ease-in-out;
     }
     
     .nav-menu.active {
-        right: 0;
+        top: 100%;
+    }
+    
+    .nav-link {
+        color: var(--accent-color);
     }
     
     .nav-list {
@@ -600,13 +661,34 @@ footer {
         display: block;
     }
     
+    .login-icon {
+        font-size: 20px;
+        color: var(--accent-color);
+    }
+    
+    .login-icon i {
+        border-bottom: 2px solid var(--accent-color);
+    }
+    
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
     
-    .footer-container {
+    .about-content {
+        grid-template-columns: 1fr
+    }
+    
+    .contact-container {
         grid-template-columns: 1fr;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+    
+    #CoffeShop {
+        max-width: 900px;
     }
     
     .hero-title {

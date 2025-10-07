@@ -1,41 +1,105 @@
+// === Helper function ===
+function getCartItems() {
+  try {
+    return JSON.parse(localStorage.getItem('cartItems') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveCartItems(items) {
+  localStorage.setItem('cartItems', JSON.stringify(items));
+}
+
+// === Update notifikasi keranjang ===
+function updateNotification() {
+  const notificationCart = document.getElementById('notification-cart');
+  if (!notificationCart) return;
+  const items = getCartItems();
+  notificationCart.textContent = items.length;
+}
+
+// === Main event listener ===
 document.addEventListener('DOMContentLoaded', function() {
+  // Panggil update notif di semua halaman
+  updateNotification();
+  
   // Toggle mobile menu
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
-  
   if (navToggle) {
     navToggle.addEventListener('click', function() {
       navMenu.classList.toggle('active');
     });
   }
   
-  // Close mobile menu when clicking on a link
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
       navMenu.classList.remove('active');
-    });
+    }
   });
   
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
+  // Cart html href
+  const cartBtn = document.getElementById('cart.html');
+  if (cartBtn) {
+    cartBtn.addEventListener('click', () => {
+      window.location.href = 'cart.html';
+    });
+  }
+  
+  // Login path
+  const lgnPath = document.getElementById('login-icon');
+  if (lgnPath) {
+    lgnPath.addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+  }
+  
+  
+  // Tombol keranjang (index.html)
+  const btnKeranjangList = document.querySelectorAll(".btn-cart");
+  btnKeranjangList.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const menuItem = btn.closest(".menu-item");
+      if (menuItem) {
+        const cartItems = getCartItems();
+        cartItems.push(menuItem.outerHTML);
+        saveCartItems(cartItems);
+        updateNotification(); // update angka di icon
+        window.location.href = "cart.html";
       }
     });
   });
   
-  // Simple form validation
+  // === Halaman cart.html ===
+  const cartContainer = document.getElementById("cart-container");
+  const cartEmpty = document.getElementById("cart-empty");
+  const btnBackIt = document.getElementById("btnBackIt");
+  
+  if (cartContainer) {
+    const savedItems = getCartItems();
+    
+    if (savedItems.length > 0) {
+      // Tampilkan semua item di keranjang
+      cartContainer.innerHTML = savedItems.join('');
+      if (cartEmpty) cartEmpty.style.display = "none";
+      if (btnBackIt) btnBackIt.style.display = "block";
+      
+      // 🔥 Tampilkan tombol hapus hanya di cart.html
+      const deleteButtons = cartContainer.querySelectorAll("#hpsBtn");
+      deleteButtons.forEach(btn => btn.style.display = "block");
+      
+    } else {
+      if (cartEmpty) cartEmpty.style.display = "flex";
+      if (btnBackIt) btnBackIt.style.display = "none";
+    }
+    
+    // Update angka notifikasi di cart.html
+    updateNotification();
+  }
+  
+  // === Form kontak ===
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -53,4 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+});
+
+// === Sinkronisasi antar tab ===
+window.addEventListener('storage', (e) => {
+  if (e.key === 'cartItems') updateNotification();
 });
