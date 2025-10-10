@@ -65,6 +65,33 @@
     color: var(--accent-color);
 }
 
+.line-one {
+    height: 3px;
+    width: 50%;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    margin-left: auto;
+    transition: all 0.5s ease;
+}
+
+.line-two {
+    height: 3px;
+    width: 75%;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    margin-left: auto;
+    transition: all 0.5s ease;
+}
+
+.line-three {
+    height: 3px;
+    width: 100%;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    margin-left: auto;
+    transition: all 0.5s ease;
+}
+
 @media (max-width: 768px) {
     .cart-container {
         height: 65px;
@@ -206,8 +233,13 @@ header {
 
 .nav-toggle {
     display: none;
-    font-size: 24px;
+    border: none;
+    width: 30px;
+    height: fit-content;
     cursor: pointer;
+    gap: 5px;
+    margin-left: 100px;
+    background: transparent;
     color: var(--secondary-color);
 }
 
@@ -658,7 +690,23 @@ footer {
     }
     
     .nav-toggle {
-        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .line-one.active {
+        transform: rotate(-45deg) translateY(8px);
+        width: 100%;
+    }
+    
+    .line-two.active {
+        width: 0;
+        opacity: 0;
+    }
+    
+    .line-three.active {
+        transform: rotate(45deg) translateY(-8px);
+        width: 100%;
     }
     
     .login-icon {

@@ -9,6 +9,7 @@ function getCartItems() {
 
 function saveCartItems(items) {
   localStorage.setItem('cartItems', JSON.stringify(items));
+  updateNotification(); // 🔥 Otomatis update angka notifikasi
 }
 
 // === Update notifikasi keranjang ===
@@ -16,8 +17,19 @@ function updateNotification() {
   const notificationCart = document.getElementById('notification-cart');
   if (!notificationCart) return;
   const items = getCartItems();
-  notificationCart.textContent = items.length;
+  notificationCart.textContent = items.length; // tampilkan jumlah item
 }
+
+const tombolMenu = document.getElementById('navToggle');
+const lineOne = document.querySelector('.line-one');
+const lineTwo = document.querySelector('.line-two');
+const lineThree = document.querySelector('.line-three');
+
+tombolMenu.addEventListener('click', () => {
+  lineOne.classList.toggle('active');
+  lineTwo.classList.toggle('active');
+  lineThree.classList.toggle('active');
+});
 
 // === Main event listener ===
 document.addEventListener('DOMContentLoaded', function() {
@@ -56,8 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  
-  // Tombol keranjang (index.html)
+  // === Tambah ke keranjang (index.html) ===
   const btnKeranjangList = document.querySelectorAll(".btn-cart");
   btnKeranjangList.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -88,7 +99,15 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // 🔥 Tampilkan tombol hapus hanya di cart.html
       const deleteButtons = cartContainer.querySelectorAll("#hpsBtn");
-      deleteButtons.forEach(btn => btn.style.display = "block");
+      deleteButtons.forEach((btn, index) => {
+        btn.style.display = "block";
+        btn.addEventListener("click", () => {
+          const updatedItems = getCartItems();
+          updatedItems.splice(index, 1); // hapus item
+          saveCartItems(updatedItems); // simpan & update notifikasi
+          location.reload(); // refresh tampilan cart
+        });
+      });
       
     } else {
       if (cartEmpty) cartEmpty.style.display = "flex";
