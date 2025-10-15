@@ -10,18 +10,22 @@
 
 <body>
   <div class="login-container">
-    <div class="login-form">
+    <form class="login-form">
       <h2>Selamat Datang ☕</h2>
       <p>Masuk untuk menikmati aroma kopi hangatmu.</p>
       
       <div class="input-group">
         <label for="email">Email address</label>
-        <input type="email" id="email" placeholder="Masukkan email kamu">
+        <input type="email" id="email-login" placeholder="Masukkan email kamu">
+        <span id="erorValidationEmail"></span>
       </div>
       
       <div class="input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Masukkan password">
+        <input type="password" id="password-login" placeholder="Masukkan password">
+        <i id="togglePassword" class="fa-solid fa-eye" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+              cursor: pointer;"></i>
+        <span id="erorValidationPassword"></span>
       </div>
       
       <div class="options">
@@ -29,7 +33,7 @@
         <a href="forgotpassword.html">Lupa password?</a>
       </div>
       
-      <button class="btn-login">Masuk</button>
+      <button type="submit" class="btn-login">Masuk</button>
       
       <button class="google-btn">
         <img src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000" alt="Google">
@@ -39,7 +43,7 @@
       <div class="signup">
         Belum punya akun? <a href="signUp.html">Sign up</a>
       </div>
-    </div>
+    </form>
     
     <div class="login-illustration">
       <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Coffee illustration">

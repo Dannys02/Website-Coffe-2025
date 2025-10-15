@@ -142,3 +142,17 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('storage', (e) => {
   if (e.key === 'cartItems') updateNotification();
 });
+
+
+const elements = document.querySelectorAll(".from-bottom");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
+    }
+  });
+}, { threshold: 0.2 });
+elements.forEach(el => observer.observe(el));
