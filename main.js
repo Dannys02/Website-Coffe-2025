@@ -73,15 +73,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Fungsi tombol Beli sekarang
-  const buyBtns = document.querySelectorAll('.btn-buy');
-  buyBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  // Fungsi tombol Beli Sekarang (pakai event delegation)
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-buy')) {
       window.location.href = 'payment.html';
-    });
+    }
   });
 
-  // Login path
+
+  // Arahkan ke login pages
   const lgnPath = document.getElementById('login-icon');
   if (lgnPath) {
     lgnPath.addEventListener('click', () => {
@@ -99,10 +99,20 @@ document.addEventListener('DOMContentLoaded', function () {
         cartItems.push(menuItem.outerHTML);
         saveCartItems(cartItems);
         updateNotification(); // update angka di icon
-        window.location.href = "cart.html";
+        alert('Produk berhasil ditambahkan');
       }
     });
   });
+
+  // === Tombol Hapus Semua Produk ===
+  const btnDeleteAll = document.getElementById('btnDeleteAll');
+  if (btnDeleteAll) {
+    btnDeleteAll.addEventListener('click', () => {
+      localStorage.removeItem('cartItems'); // hapus semua data keranjang
+      updateNotification(); // perbarui angka notifikasi
+      location.reload(); // refresh tampilan cart
+    });
+  }
 
   // === Halaman cart.html ===
   const cartContainer = document.getElementById("cart-container");
