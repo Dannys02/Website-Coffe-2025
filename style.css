@@ -16,6 +16,42 @@
     --coco-color: #B7957F;
 }
 
+#loadingScreen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.85);
+    /* warna gelap transparan */
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.4s ease;
+}
+
+#loadingScreen .spinner-border {
+    width: 4rem;
+    height: 4rem;
+}
+
+.loading-text {
+    margin-top: 1rem;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+/* Saat konten diblur */
+body.loading-active main,
+body.loading-active section,
+body.loading-active nav,
+body.loading-active footer {
+    filter: blur(8px);
+    pointer-events: none;
+    user-select: none;
+}
+
 /* Agar UI tidak kaku */
 .from-bottom {
     opacity: 0;
@@ -29,7 +65,6 @@
     transform: translateY(0)
 }
 
-
 .cart-container {
     position: fixed;
     left: 5%;
@@ -42,6 +77,7 @@
     align-items: center;
     background: var(--primary-color);
     z-index: 100;
+    cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -111,13 +147,13 @@
         height: 65px;
         width: 65px;
     }
-    
+
     .cart-container span {
         height: 16px;
         width: 16px;
         font-size: 10px;
     }
-    
+
     .cart-container i {
         transform: scale(1.5);
     }
@@ -195,7 +231,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 .logo {
@@ -216,12 +252,16 @@ header {
 
 .nav-list {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
 }
 
 .nav-link {
     position: relative;
-    padding-bottom: 5px;
     font-weight: 500;
     color: black;
     transition: color 0.3s ease;
@@ -251,7 +291,6 @@ header {
     height: fit-content;
     cursor: pointer;
     gap: 5px;
-    margin-left: 100px;
     background: transparent;
     color: var(--secondary-color);
 }
@@ -269,7 +308,7 @@ header {
 
 /* Hero Section */
 .hero {
-    padding: 150px 0 100px;
+    padding: 210px 0 100px;
     background: linear-gradient(to top,
             var(--dark-color),
             var(--coco-color),
@@ -481,45 +520,49 @@ header {
 }
 
 .testimonials-container {
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  padding: 0 10%;
-  margin: 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding: 0 10%;
+    margin: 0;
 }
 
 .testimonials-container::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .testimonial {
-  flex: 0 0 100%;              /* tiap elemen selebar container */
-  scroll-snap-align: center;   /* berhenti di tengah */
-  text-align: center;
-  padding: 40px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;      /* biar padding nggak nambah lebar total */
+    flex: 0 0 100%;
+    /* tiap elemen selebar container */
+    scroll-snap-align: center;
+    /* berhenti di tengah */
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    /* biar padding nggak nambah lebar total */
 }
 
-.testimonial + .testimonial {
-  margin-left: 50px;           /* jarak antar testimonial */
+.testimonial+.testimonial {
+    margin-left: 50px;
+    /* jarak antar testimonial */
 }
 
 .testimonial-text {
-  font-style: italic;
-  margin-bottom: 20px;
-  line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.8;
 }
 
 .testimonial-author {
-  font-weight: 600;
-  color: var(--secondary-color);
+    font-weight: 600;
+    color: var(--secondary-color);
 }
 
 /* Contact Section */
@@ -679,11 +722,11 @@ footer {
         width: 100%;
         border-radius: 0;
     }
-    
+
     .header-container {
         padding: 20px 10px;
     }
-    
+
     .nav-menu {
         position: fixed;
         top: -550%;
@@ -695,82 +738,82 @@ footer {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: top 0.3s ease-in-out;
     }
-    
+
     .nav-menu.active {
         top: 100%;
     }
-    
+
     .nav-link {
         color: var(--accent-color);
     }
-    
+
     .nav-list {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .nav-toggle {
         display: flex;
         flex-direction: column;
     }
-    
+
     .line-one.active {
         transform: rotate(-45deg) translateY(8px);
         width: 100%;
     }
-    
+
     .line-two.active {
         width: 0;
         opacity: 0;
     }
-    
+
     .line-three.active {
         transform: rotate(45deg) translateY(-8px);
         width: 100%;
     }
-    
+
     .login-icon {
         font-size: 20px;
         color: var(--accent-color);
     }
-    
+
     .login-icon i {
         border-bottom: 2px solid var(--accent-color);
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .about-content {
         grid-template-columns: 1fr
     }
-    
+
     .testimonial {
         padding: 30px 20px;
     }
-    
+
     .testimonials {
         padding: 80px 0;
     }
-    
+
     .contact-container {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-container {
         flex-direction: column;
     }
-    
+
     #CoffeShop {
         max-width: 900px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
