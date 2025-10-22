@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Tampilkan semua item di keranjang
       cartContainer.innerHTML = savedItems.join('');
       if (cartEmpty) cartEmpty.style.display = "none";
+      if (btnDeleteAll) btnDeleteAll.style.display = "block";
       if (btnBackIt) btnBackIt.style.display = "block";
 
       // 🔥 Tampilkan tombol hapus hanya di cart.html
@@ -142,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     } else {
       if (cartEmpty) cartEmpty.style.display = "flex";
+      if(btnDeleteAll) btnDeleteAll.style.display = "none";
       if (btnBackIt) btnBackIt.style.display = "none";
     }
 

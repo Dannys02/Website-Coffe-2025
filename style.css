@@ -267,6 +267,10 @@ header {
     transition: color 0.3s ease;
 }
 
+.nav-link:hover {
+    color: black;
+}
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -294,16 +298,51 @@ header {
     color: var(--secondary-color);
 }
 
+.container-login-icon {
+    position: relative;
+}
+
 .login-icon {
-    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: white;
+    color: black;
+    border-radius: 15px;
     cursor: pointer;
-    width: fit-content;
+    overflow: hidden;
+    width: 45px;
+    transition: width 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .login-icon i {
-    padding-bottom: 4px;
-    border-bottom: 2px solid black;
+    font-size: 16px;
+    flex-shrink: 0;
 }
+
+.login-icon span {
+    font-size: 16px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.login-icon:hover {
+    width: 90px;
+    transform: scale(1) translate(-80%, -50%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.login-icon:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 
 /* Hero Section */
 .hero {
