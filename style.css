@@ -300,18 +300,20 @@ header {
 
 .container-login-icon {
     position: relative;
+    padding: 0 2rem;
 }
 
 .login-icon {
     position: absolute;
     top: 50%;
-    transform: translate(-100%, -50%);
+    transform: translate(-50%, -50%);
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 6px 14px;
-    background: white;
-    color: black;
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 0 2px var(--accent-color);
     border-radius: 15px;
     cursor: pointer;
     overflow: hidden;
@@ -334,7 +336,7 @@ header {
 
 .login-icon:hover {
     width: 90px;
-    transform: scale(1) translate(-80%, -50%);
+    transform: scale(1) translate(-50%, -50%);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -486,6 +488,10 @@ header {
 }
 
 @media (max-width: 768px) {
+    .login-icon i {
+        
+    }
+    
     .menu-item-content {
         padding: 20px;
     }
@@ -790,6 +796,10 @@ footer {
     .nav-link {
         color: var(--accent-color);
     }
+    
+    .nav-link:hover {
+        color: var(--accent-color);
+    }
 
     .nav-list {
         flex-direction: column;
@@ -802,7 +812,7 @@ footer {
     }
 
     .line-one.active {
-        transform: rotate(-45deg) translateY(8px);
+        transform: rotate(-45deg) translateY(10px);
         width: 100%;
     }
 
@@ -812,17 +822,8 @@ footer {
     }
 
     .line-three.active {
-        transform: rotate(45deg) translateY(-8px);
+        transform: rotate(45deg) translateY(-10px);
         width: 100%;
-    }
-
-    .login-icon {
-        font-size: 20px;
-        color: var(--accent-color);
-    }
-
-    .login-icon i {
-        border-bottom: 2px solid var(--accent-color);
     }
 
     .hero-buttons {
