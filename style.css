@@ -43,7 +43,6 @@
 }
 
 /* Saat konten diblur */
-body.loading-active main,
 body.loading-active section,
 body.loading-active nav,
 body.loading-active footer {
@@ -147,13 +146,13 @@ body.loading-active footer {
         height: 65px;
         width: 65px;
     }
-
+    
     .cart-container span {
         height: 16px;
         width: 16px;
         font-size: 10px;
     }
-
+    
     .cart-container i {
         transform: scale(1.5);
     }
@@ -454,6 +453,7 @@ header {
 }
 
 .menu-item {
+    position: relative;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
@@ -464,6 +464,110 @@ header {
 .menu-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* CHECKBOX STYLING COFFE */
+.border-checkbox-all {
+    border-radius: 8px;
+    padding: 20px 36px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    background: var(--light-color);
+}
+
+.checkbox-container-all input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-container-all label {
+    width: 30px;
+    height: 30px;
+    background: #d3b89a;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease;
+}
+
+.checkbox-container-all label:hover {
+    background: #c5a57c;
+}
+
+.checkbox-container-all input[type="checkbox"]:checked+label {
+    background: #7b5631;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.checkbox-container-all input[type="checkbox"]:checked+label i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.checkbox-container-all label i {
+    font-size: 21px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.border-checkbox-all span {
+    font-size: 18px;
+}
+
+/* CHECKBOX MENU ITEM */
+.checkbox-container {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-container label {
+    width: 25px;
+    height: 25px;
+    background: #d3b89a;
+    /* warna kopi */
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.checkbox-container label:hover {
+    background: #c5a57c;
+}
+
+.checkbox-container input[type="checkbox"]:checked+label {
+    background: #7b5631;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.checkbox-container input[type="checkbox"]:checked+label i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.checkbox-container label i {
+    font-size: 14px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
 }
 
 .menu-item-image {
@@ -488,9 +592,7 @@ header {
 }
 
 @media (max-width: 768px) {
-    .login-icon i {
-        
-    }
+    .login-icon i {}
     
     .menu-item-content {
         padding: 20px;
@@ -685,6 +787,49 @@ textarea.form-control {
     resize: vertical;
 }
 
+/* Modal Succes */
+.field-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    background: white;
+    padding: 60px 80px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.field-modal.succes {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.div-icon-plane {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #3b82f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.field-modal span {
+    color: #1e293b;
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
 /* Footer */
 footer {
     background-color: var(--dark-color);
@@ -772,11 +917,11 @@ footer {
         width: 100%;
         border-radius: 0;
     }
-
+    
     .header-container {
         padding: 20px 10px;
     }
-
+    
     .nav-menu {
         position: fixed;
         top: -550%;
@@ -788,11 +933,11 @@ footer {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: top 0.3s ease-in-out;
     }
-
+    
     .nav-menu.active {
         top: 100%;
     }
-
+    
     .nav-link {
         color: var(--accent-color);
     }
@@ -800,65 +945,65 @@ footer {
     .nav-link:hover {
         color: var(--accent-color);
     }
-
+    
     .nav-list {
         flex-direction: column;
         gap: 20px;
     }
-
+    
     .nav-toggle {
         display: flex;
         flex-direction: column;
     }
-
+    
     .line-one.active {
         transform: rotate(-45deg) translateY(10px);
         width: 100%;
     }
-
+    
     .line-two.active {
         width: 0;
         opacity: 0;
     }
-
+    
     .line-three.active {
         transform: rotate(45deg) translateY(-10px);
         width: 100%;
     }
-
+    
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-
+    
     .about-content {
         grid-template-columns: 1fr
     }
-
+    
     .testimonial {
         padding: 30px 20px;
     }
-
+    
     .testimonials {
         padding: 80px 0;
     }
-
+    
     .contact-container {
         grid-template-columns: 1fr;
     }
-
+    
     .footer-container {
         flex-direction: column;
     }
-
+    
     #CoffeShop {
         max-width: 900px;
     }
-
+    
     .hero-title {
         font-size: 2rem;
     }
-
+    
     .section-title {
         font-size: 2rem;
     }

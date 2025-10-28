@@ -35,11 +35,11 @@
       
       <nav class="nav-menu" id="navMenu">
         <ul class="nav-list">
-          <li><a href="#home" class="nav-link">Beranda</a></li>
-          <li><a href="#about" class="nav-link">Tentang</a></li>
-          <li><a href="#menu" class="nav-link">Menu</a></li>
-          <li><a href="#testimonials" class="nav-link">Ulasan</a></li>
-          <li><a href="#contact" class="nav-link">Kontak</a></li>
+          <li><a href="index.html#home" class="nav-link">Beranda</a></li>
+          <li><a href="index.html#about" class="nav-link">Tentang</a></li>
+          <li><a href="index.html#menu" class="nav-link">Menu</a></li>
+          <li><a href="index.html#testimonials" class="nav-link">Ulasan</a></li>
+          <li><a href="index.html#contact" class="nav-link">Kontak</a></li>
         </ul>
       </nav>
       
@@ -52,9 +52,23 @@
     </div>
   </header>
   
-  
   <div class="container-main-cart">
-    <button class="btn-back" id="btnBackIt">Kembali <i class="fa-solid fa-arrow-left"></i></button>
+    <div class="buttons-div-cart">
+      <button class="btn-back" id="btnBackIt">Kembali <i class="fa-solid fa-arrow-left"></i></button>
+      
+      <!--<div class="border-checkbox-all from-bottom">
+        <div class="checkbox-container-all">
+          <input type="checkbox" id="check1">
+          <label for="check1"><i class="fa-solid fa-check"></i></label>
+        </div>
+        <span style="color: var(--dark-color)">Pilih Semua Produk</span>
+      </div>-->
+      
+      <button class="btn-deleteAll" id="btnDeleteAll">
+        <i class="fa-solid fa-xmark"></i>
+        <span style="padding-left: 3px;">Hapus semua produk</span></button>
+    </div>
+    
     <div id="cart-empty" class="cart-empty from-bottom">
       <i class="fa-solid fa-cart-shopping icon"></i>
       <h2 class="h2">Keranjang Anda Kosong</h2>
@@ -63,9 +77,6 @@
     </div>
     
     <div id="cart-container"></div>
-    <button class="btn-deleteAll" id="btnDeleteAll">
-      <i class="fa-solid fa-xmark"></i>
-      <span style="padding-left: 3px;">Hapus semua produk</span></button>
   </div>
   
   <footer>

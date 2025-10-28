@@ -24,13 +24,15 @@ function updateNotification() {
 window.addEventListener("load", () => {
   const loader = document.getElementById("loadingScreen");
   document.body.classList.add("loading-active");
+  document.body.style.overflow = "hidden";
   
   // Simulasikan durasi loading (misal 2,5 detik)
   setTimeout(() => {
     loader.style.opacity = "0";
     document.body.classList.remove("loading-active");
+    document.body.style.overflow = "auto";
     setTimeout(() => loader.remove(), 400);
-  }, 100);
+  }, 1);
 });
 
 const tombolMenu = document.getElementById('navToggle');
@@ -109,6 +111,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Keranjang checkbox products
+  const cartAllBtn = document.querySelector('.cart-all-product');
+  if (cartAllBtn) {
+    cartAllBtn.addEventListener('click', () => {
+      const checkedItems = document.querySelectorAll('.menu-item input[type="checkbox"]:checked');
+      const cartItems = getCartItems();
+      checkedItems.forEach(chk => {
+        const menuItem = chk.closest('.menu-item');
+        if (menuItem) cartItems.push(menuItem.outerHTML);
+      });
+      saveCartItems(cartItems);
+      updateNotification();
+      alert('Produk terpilih berhasil dimasukkan ke keranjang!');
+    });
+  }
+  
   // === Tombol Hapus Semua Produk ===
   const btnDeleteAll = document.getElementById('btnDeleteAll');
   if (btnDeleteAll) {
@@ -177,6 +195,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // CHECKBOX FUNCTION
+  const checkAll = document.getElementById('check1');
+  const otherChecks = document.querySelectorAll('#check2, #check3, #check4, #check5, #check6, #check7');
+  
+  checkAll.addEventListener('change', () => {
+    otherChecks.forEach(chk => chk.checked = checkAll.checked);
+  });
   
   // === Form kontak ===
   const contactForm = document.getElementById('contactForm');
@@ -187,9 +212,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
+      const fieldModal = document.getElementById("field-modal");
       
       if (name && email && message) {
-        alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
+        fieldModal.classList.toggle("succes");
+        setTimeout(function() {
+          fieldModal.classList.remove("succes");
+        }, 3000);
         contactForm.reset();
       } else {
         alert('Silakan isi semua field yang diperlukan.');
