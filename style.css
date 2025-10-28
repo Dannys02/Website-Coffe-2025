@@ -146,13 +146,13 @@ body.loading-active footer {
         height: 65px;
         width: 65px;
     }
-    
+
     .cart-container span {
         height: 16px;
         width: 16px;
         font-size: 10px;
     }
-    
+
     .cart-container i {
         transform: scale(1.5);
     }
@@ -466,10 +466,17 @@ header {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Isi button pendukung */
+.container-button-plus {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
 /* CHECKBOX STYLING COFFE */
 .border-checkbox-all {
     border-radius: 8px;
-    padding: 20px 36px;
+    padding: 10px 16px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
@@ -484,8 +491,8 @@ header {
 }
 
 .checkbox-container-all label {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: #d3b89a;
     border-radius: 6px;
     display: flex;
@@ -512,14 +519,14 @@ header {
 }
 
 .checkbox-container-all label i {
-    font-size: 21px;
+    font-size: 14px;
     opacity: 0;
     transform: scale(0);
     transition: all 0.3s ease;
 }
 
 .border-checkbox-all span {
-    font-size: 18px;
+    font-size: 12px;
 }
 
 /* CHECKBOX MENU ITEM */
@@ -570,6 +577,22 @@ header {
     transition: all 0.3s ease;
 }
 
+/* CART ALL PRODUCT */
+.btn-cart.cart-all-product {
+    padding: 14px 16px;
+    font-size: 14px;
+}
+
+.cart-all-product i {
+    font-size: 18px;
+}
+
+/* BTN ALL PRODUCT */
+.btn-buy.cart-all-product {
+    padding: 14px 16px;
+    font-size: 14px;
+}
+
 .menu-item-image {
     width: 100%;
     height: 200px;
@@ -592,8 +615,21 @@ header {
 }
 
 @media (max-width: 768px) {
-    .login-icon i {}
-    
+    .container-button-plus {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .checkbox-container-all label {
+        width: 25px;
+        height: 25px;
+    }
+
+    .checkbox-container-all label i {
+        font-size: 12px;
+    }
+
     .menu-item-content {
         padding: 20px;
     }
@@ -794,7 +830,7 @@ textarea.form-control {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
-    background: white;
+    background: var(--dark-color);
     padding: 60px 80px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -814,17 +850,17 @@ textarea.form-control {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: var(--accent-color);
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 28px;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 12px var(--secondary-color);
 }
 
 .field-modal span {
-    color: #1e293b;
+    color: var(--coco-color);
     font-weight: 500;
     font-size: 16px;
     white-space: nowrap;
@@ -917,11 +953,11 @@ footer {
         width: 100%;
         border-radius: 0;
     }
-    
+
     .header-container {
         padding: 20px 10px;
     }
-    
+
     .nav-menu {
         position: fixed;
         top: -550%;
@@ -933,77 +969,77 @@ footer {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: top 0.3s ease-in-out;
     }
-    
+
     .nav-menu.active {
         top: 100%;
     }
-    
+
     .nav-link {
         color: var(--accent-color);
     }
-    
+
     .nav-link:hover {
         color: var(--accent-color);
     }
-    
+
     .nav-list {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .nav-toggle {
         display: flex;
         flex-direction: column;
     }
-    
+
     .line-one.active {
         transform: rotate(-45deg) translateY(10px);
         width: 100%;
     }
-    
+
     .line-two.active {
         width: 0;
         opacity: 0;
     }
-    
+
     .line-three.active {
         transform: rotate(45deg) translateY(-10px);
         width: 100%;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .about-content {
         grid-template-columns: 1fr
     }
-    
+
     .testimonial {
         padding: 30px 20px;
     }
-    
+
     .testimonials {
         padding: 80px 0;
     }
-    
+
     .contact-container {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-container {
         flex-direction: column;
     }
-    
+
     #CoffeShop {
         max-width: 900px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
