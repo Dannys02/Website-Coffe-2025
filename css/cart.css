@@ -25,6 +25,9 @@ body {
 }
 
 .buttons-div-cart {
+  position: sticky;
+  top: 100px;
+  z-index: 100;
   display: flex;
   align-items: center;
   gap: 25px;
@@ -91,9 +94,8 @@ body {
   font-weight: 600;
   border: none;
   border-radius: 6px;
-  padding: 10px 20px;
+  padding: 14px 20px;
   cursor: pointer;
-  font-size: 13px;
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease;
@@ -115,11 +117,21 @@ body {
     margin-bottom: 2.5rem;
     margin-inline: 15px;
   }
-
+  
+  .buttons-div-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12.5px;
+  }
+  
   #cart-container {
     padding-inline: 5px;
     padding-bottom: 5px;
     padding-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
   }
 }
 

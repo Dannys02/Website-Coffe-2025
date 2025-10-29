@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cart.css">
 </head>
 
 <body>
@@ -55,7 +55,7 @@
   </header>
 
   <div class="container-main-cart">
-    <div class="buttons-div-cart">
+    <div class="buttons-div-cart" id="btn-div-cart">
       <div class="from-bottom">
         <button class="btn-back" id="btnBackIt"> <span>Kembali</span> <i class="fa-solid fa-arrow-left"></i></button>
       </div>
@@ -142,7 +142,7 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="js/main.js"></script>
   <script>
     document.getElementById('btn-back').addEventListener('click', () => {
       window.location.href = 'index.html';
@@ -151,6 +151,25 @@
     document.getElementById('btnBackIt').addEventListener('click', () => {
       window.location.href = 'index.html#menu';
     });
+    
+    const btnDeleteCheckbox = document.getElementById('btnDeleteCheckbox');
+if (btnDeleteCheckbox) {
+  btnDeleteCheckbox.addEventListener('click', () => {
+    const checkedItems = document.querySelectorAll('.menu-item input[type="checkbox"]:checked');
+    let cartItems = getCartItems();
+    const allItems = Array.from(document.querySelectorAll('.menu-item'));
+
+    checkedItems.forEach(chk => {
+      const idx = allItems.indexOf(chk.closest('.menu-item'));
+      if (idx > -1) cartItems.splice(idx, 1);
+    });
+
+    saveCartItems(cartItems);
+    updateNotification();
+    location.reload();
+  });
+}
+
   </script>
 </body>
 

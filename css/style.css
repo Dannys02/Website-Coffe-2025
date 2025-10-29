@@ -146,13 +146,13 @@ body.loading-active footer {
         height: 65px;
         width: 65px;
     }
-
+    
     .cart-container span {
         height: 16px;
         width: 16px;
         font-size: 10px;
     }
-
+    
     .cart-container i {
         transform: scale(1.5);
     }
@@ -344,26 +344,29 @@ header {
     transform: translateX(0);
 }
 
-
 /* Hero Section */
 .hero {
-    padding: 210px 0 100px;
+    padding: 210px 40px 100px;
     background: linear-gradient(to top,
             var(--dark-color),
             var(--coco-color),
             var(--light-color));
     text-align: center;
+    display: flex;
 }
 
 .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
 .hero-title {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 20px;
+    text-align: start;
     color: var(--dark-color);
 }
 
@@ -371,6 +374,7 @@ header {
     font-size: 1.2rem;
     margin-bottom: 30px;
     color: var(--text-color);
+    text-align: start;
 }
 
 .hero-buttons {
@@ -378,6 +382,32 @@ header {
     gap: 15px;
     justify-content: center;
     margin-top: 30px;
+}
+
+.second-hero-content {
+    position: relative;
+    width: 50%;
+    background: red;
+}
+
+.coffe-png {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 70%;
+    height: 50%;
+}
+
+
+.cawan-png {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 50%;
 }
 
 /* About Section */
@@ -470,13 +500,13 @@ header {
 .container-button-plus {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 /* CHECKBOX STYLING COFFE */
 .border-checkbox-all {
     border-radius: 8px;
-    padding: 10px 16px;
+    padding: 14px 16px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
@@ -526,7 +556,7 @@ header {
 }
 
 .border-checkbox-all span {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 /* CHECKBOX MENU ITEM */
@@ -619,17 +649,18 @@ header {
         flex-direction: column;
         justify-content: start;
         align-items: start;
+        gap: 12.5px;
     }
-
+    
     .checkbox-container-all label {
         width: 25px;
         height: 25px;
     }
-
+    
     .checkbox-container-all label i {
         font-size: 12px;
     }
-
+    
     .menu-item-content {
         padding: 20px;
     }
@@ -953,11 +984,11 @@ footer {
         width: 100%;
         border-radius: 0;
     }
-
+    
     .header-container {
         padding: 20px 10px;
     }
-
+    
     .nav-menu {
         position: fixed;
         top: -550%;
@@ -969,77 +1000,77 @@ footer {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: top 0.3s ease-in-out;
     }
-
+    
     .nav-menu.active {
         top: 100%;
     }
-
+    
     .nav-link {
         color: var(--accent-color);
     }
-
+    
     .nav-link:hover {
         color: var(--accent-color);
     }
-
+    
     .nav-list {
         flex-direction: column;
         gap: 20px;
     }
-
+    
     .nav-toggle {
         display: flex;
         flex-direction: column;
     }
-
+    
     .line-one.active {
         transform: rotate(-45deg) translateY(10px);
         width: 100%;
     }
-
+    
     .line-two.active {
         width: 0;
         opacity: 0;
     }
-
+    
     .line-three.active {
         transform: rotate(45deg) translateY(-10px);
         width: 100%;
     }
-
+    
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-
+    
     .about-content {
         grid-template-columns: 1fr
     }
-
+    
     .testimonial {
         padding: 30px 20px;
     }
-
+    
     .testimonials {
         padding: 80px 0;
     }
-
+    
     .contact-container {
         grid-template-columns: 1fr;
     }
-
+    
     .footer-container {
         flex-direction: column;
     }
-
+    
     #CoffeShop {
         max-width: 900px;
     }
-
+    
     .hero-title {
         font-size: 2rem;
     }
-
+    
     .section-title {
         font-size: 2rem;
     }

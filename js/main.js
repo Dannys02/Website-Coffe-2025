@@ -20,7 +20,7 @@ function updateNotification() {
   notificationCart.textContent = items.length; // tampilkan jumlah item
 }
 
-// Loading website
+// === Loading website ===
 window.addEventListener("load", () => {
   const loader = document.getElementById("loadingScreen");
   document.body.classList.add("loading-active");
@@ -31,10 +31,11 @@ window.addEventListener("load", () => {
     loader.style.opacity = "0";
     document.body.classList.remove("loading-active");
     document.body.style.overflow = "auto";
-    setTimeout(() => loader.remove(), 400);
-  }, 1);
+    setTimeout(() => loader.remove(), 40);
+  }, 0);
 });
 
+// === Tombol menu hamburger ===
 const tombolMenu = document.getElementById('navToggle');
 const lineOne = document.querySelector('.line-one');
 const lineTwo = document.querySelector('.line-two');
@@ -85,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  
   // Arahkan ke login pages
   const lgnPath = document.getElementById('login-icon');
   if (lgnPath) {
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // === Tambah ke keranjang (index.html) ===
+  // Tambah ke keranjang (index.html)
   const btnKeranjangList = document.querySelectorAll(".btn-cart");
   btnKeranjangList.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -127,20 +127,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // === Tombol Hapus Semua Produk ===
+  // Tombol Hapus Semua Produk
   const btnDeleteAll = document.getElementById('btnDeleteAll');
   if (btnDeleteAll) {
     btnDeleteAll.addEventListener('click', () => {
-      localStorage.removeItem('cartItems'); // hapus semua data keranjang
-      updateNotification(); // perbarui angka notifikasi
-      location.reload(); // refresh tampilan cart
+      localStorage.removeItem('cartItems');
+      updateNotification();
+      location.reload();
     });
   }
   
-  // === Halaman cart.html ===
+  // Halaman cart.html
   const cartContainer = document.getElementById("cart-container");
   const cartEmpty = document.getElementById("cart-empty");
   const btnBackIt = document.getElementById("btnBackIt");
+  const btnDivCart = document.getElementById("btn-div-cart");
   
   if (cartContainer) {
     const savedItems = getCartItems();
@@ -149,10 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Tampilkan semua item di keranjang
       cartContainer.innerHTML = savedItems.join('');
       if (cartEmpty) cartEmpty.style.display = "none";
-      if (btnDeleteAll) btnDeleteAll.style.display = "block";
-      if (btnBackIt) btnBackIt.style.display = "block";
+      if (btnDivCart) btnDivCart.style.display = "flex";
       
-      // 🔥 Tampilkan tombol hapus hanya di cart.html
+      // Tampilkan tombol hapus hanya di cart.html
       const deleteButtons = cartContainer.querySelectorAll("#hpsBtn");
       deleteButtons.forEach((btn, index) => {
         btn.style.display = "block";
@@ -166,8 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
     } else {
       if (cartEmpty) cartEmpty.style.display = "flex";
-      if (btnDeleteAll) btnDeleteAll.style.display = "none";
-      if (btnBackIt) btnBackIt.style.display = "none";
+      if (btnDivCart) btnDivCart.style.display = "none";
     }
     
     // Update angka notifikasi di cart.html
@@ -232,9 +231,8 @@ window.addEventListener('storage', (e) => {
   if (e.key === 'cartItems') updateNotification();
 });
 
-
+// === Animasi from-bottom ===
 const elements = document.querySelectorAll(".from-bottom");
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -244,4 +242,5 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.2 });
+
 elements.forEach(el => observer.observe(el));
