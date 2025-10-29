@@ -151,24 +151,24 @@
     document.getElementById('btnBackIt').addEventListener('click', () => {
       window.location.href = 'index.html#menu';
     });
-    
+
     const btnDeleteCheckbox = document.getElementById('btnDeleteCheckbox');
-if (btnDeleteCheckbox) {
-  btnDeleteCheckbox.addEventListener('click', () => {
-    const checkedItems = document.querySelectorAll('.menu-item input[type="checkbox"]:checked');
-    let cartItems = getCartItems();
-    const allItems = Array.from(document.querySelectorAll('.menu-item'));
+    if (btnDeleteCheckbox) {
+      btnDeleteCheckbox.addEventListener('click', () => {
+        const checkedItems = document.querySelectorAll('.menu-item input[type="checkbox"]:checked');
+        let cartItems = getCartItems();
+        const allItems = Array.from(document.querySelectorAll('.menu-item'));
 
-    checkedItems.forEach(chk => {
-      const idx = allItems.indexOf(chk.closest('.menu-item'));
-      if (idx > -1) cartItems.splice(idx, 1);
-    });
+        checkedItems.forEach(chk => {
+          const idx = allItems.indexOf(chk.closest('.menu-item'));
+          if (idx > -1) cartItems.splice(idx, 1);
+        });
 
-    saveCartItems(cartItems);
-    updateNotification();
-    location.reload();
-  });
-}
+        saveCartItems(cartItems);
+        updateNotification();
+        location.reload();
+      });
+    }
 
   </script>
 </body>

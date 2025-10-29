@@ -146,13 +146,13 @@ body.loading-active footer {
         height: 65px;
         width: 65px;
     }
-    
+
     .cart-container span {
         height: 16px;
         width: 16px;
         font-size: 10px;
     }
-    
+
     .cart-container i {
         transform: scale(1.5);
     }
@@ -262,12 +262,12 @@ header {
 .nav-link {
     position: relative;
     font-weight: 500;
-    color: black;
+    color: var(--accent-color);
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: black;
+    color: var(--accent-color);
 }
 
 .nav-link::after {
@@ -308,7 +308,7 @@ header {
     transform: translate(-50%, -50%);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     padding: 6px 14px;
     background: var(--accent-color);
     color: white;
@@ -322,6 +322,7 @@ header {
 
 .login-icon i {
     font-size: 16px;
+    transform: translate(15%, -10%);
     flex-shrink: 0;
 }
 
@@ -334,7 +335,7 @@ header {
 }
 
 .login-icon:hover {
-    width: 90px;
+    width: 95px;
     transform: scale(1) translate(-50%, -50%);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
@@ -346,11 +347,15 @@ header {
 
 /* Hero Section */
 .hero {
-    padding: 210px 40px 100px;
-    background: linear-gradient(to top,
+    padding: 170px 40px 110px;
+    /* background: linear-gradient(to top,
             var(--dark-color),
             var(--coco-color),
-            var(--light-color));
+            var(--light-color)); */
+    background: url('https://img.freepik.com/free-photo/brown-concrete-wall-with-scratches-vector_53876-143109.jpg?semt=ais_hybrid&w=740&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
     text-align: center;
     display: flex;
 }
@@ -367,13 +372,13 @@ header {
     font-weight: 700;
     margin-bottom: 20px;
     text-align: start;
-    color: var(--dark-color);
+    color: var(--light-color);
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: var(--text-color);
+    color: var(--light-color);
     text-align: start;
 }
 
@@ -387,27 +392,42 @@ header {
 .second-hero-content {
     position: relative;
     width: 50%;
-    background: red;
 }
 
 .coffe-png {
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    width: 70%;
-    height: 50%;
+    width: 400px;
+    height: 350px;
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: opacity 1.5s ease, top 1.5s ease;
 }
 
 
 .cawan-png {
     position: absolute;
-    top: 60%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    height: 50%;
+    width: 400px;
+    height: 300px;
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: opacity 1.5s ease, top 1.5s ease;
+}
+
+.coffe-png.coffe-fadeIn {
+    opacity: 1;
+    top: 42%;
+}
+
+.cawan-png.cawan-fadeIn {
+    opacity: 1;
+    top: 50%;
 }
 
 /* About Section */
@@ -651,16 +671,16 @@ header {
         align-items: start;
         gap: 12.5px;
     }
-    
+
     .checkbox-container-all label {
         width: 25px;
         height: 25px;
     }
-    
+
     .checkbox-container-all label i {
         font-size: 12px;
     }
-    
+
     .menu-item-content {
         padding: 20px;
     }
@@ -984,11 +1004,11 @@ footer {
         width: 100%;
         border-radius: 0;
     }
-    
+
     .header-container {
         padding: 20px 10px;
     }
-    
+
     .nav-menu {
         position: fixed;
         top: -550%;
@@ -1000,77 +1020,77 @@ footer {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: top 0.3s ease-in-out;
     }
-    
+
     .nav-menu.active {
         top: 100%;
     }
-    
+
     .nav-link {
         color: var(--accent-color);
     }
-    
+
     .nav-link:hover {
         color: var(--accent-color);
     }
-    
+
     .nav-list {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .nav-toggle {
         display: flex;
         flex-direction: column;
     }
-    
+
     .line-one.active {
         transform: rotate(-45deg) translateY(10px);
         width: 100%;
     }
-    
+
     .line-two.active {
         width: 0;
         opacity: 0;
     }
-    
+
     .line-three.active {
         transform: rotate(45deg) translateY(-10px);
         width: 100%;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .about-content {
         grid-template-columns: 1fr
     }
-    
+
     .testimonial {
         padding: 30px 20px;
     }
-    
+
     .testimonials {
         padding: 80px 0;
     }
-    
+
     .contact-container {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-container {
         flex-direction: column;
     }
-    
+
     #CoffeShop {
         max-width: 900px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
