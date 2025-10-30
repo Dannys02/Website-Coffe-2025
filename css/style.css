@@ -394,41 +394,45 @@ header {
     width: 50%;
 }
 
-.coffe-png {
+.coffe-png,
+.cawan-png {
     position: absolute;
-    top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    will-change: opacity, transform;
+    transition:
+        opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
+    contain: layout paint;
+}
+
+.coffe-png {
+    top: 35%;
     z-index: 5;
     width: 400px;
     height: 350px;
-    opacity: 0;
-    will-change: opacity, transform;
-    transition: opacity 1.5s ease, top 1.5s ease;
 }
 
-
 .cawan-png {
-    position: absolute;
     top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 400px;
     height: 300px;
-    opacity: 0;
-    will-change: opacity, transform;
-    transition: opacity 1.5s ease, top 1.5s ease;
 }
 
 .coffe-png.coffe-fadeIn {
     opacity: 1;
-    top: 45%;
+    transform: translate(-50%, -35%) scale(1.03);
+    transition-delay: 0.1s;
 }
 
 .cawan-png.cawan-fadeIn {
     opacity: 1;
-    top: 50%;
+    transform: translate(-50%, -80%) scale(1.03);
+    transition-delay: 0.2s;
 }
+
 
 /* About Section */
 .about {
