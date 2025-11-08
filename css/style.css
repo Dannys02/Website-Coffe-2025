@@ -146,13 +146,13 @@ body.loading-active footer {
         height: 65px;
         width: 65px;
     }
-
+    
     .cart-container span {
         height: 16px;
         width: 16px;
         font-size: 10px;
     }
-
+    
     .cart-container i {
         transform: scale(1.5);
     }
@@ -424,12 +424,12 @@ header {
 .coffe-png.coffe-fadeIn {
     opacity: 1;
     transform: translate(-50%, -35%) scale(1.03);
-    transition-delay: 0.1s;
+    transition-delay: 0.2s;
 }
 
 .cawan-png.cawan-fadeIn {
     opacity: 1;
-    transform: translate(-50%, -80%) scale(1.03);
+    transform: translate(-50%, -92%) scale(1.03);
     transition-delay: 0.2s;
 }
 
@@ -669,22 +669,44 @@ header {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding: 250px 40px 110px;
+    }
+    
+    .hero-content {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .hero-title {
+        text-align: center;
+    }
+    
+    .hero-subtitle {
+        text-align: center;
+    }
+    
+    .second-hero-content {
+        display: none;
+    }
+    
     .container-button-plus {
         flex-direction: column;
         justify-content: start;
         align-items: start;
         gap: 12.5px;
     }
-
+    
     .checkbox-container-all label {
         width: 25px;
         height: 25px;
     }
-
+    
     .checkbox-container-all label i {
         font-size: 12px;
     }
-
+    
     .menu-item-content {
         padding: 20px;
     }
@@ -1008,11 +1030,11 @@ footer {
         width: 100%;
         border-radius: 0;
     }
-
+    
     .header-container {
         padding: 20px 10px;
     }
-
+    
     .nav-menu {
         position: fixed;
         top: -550%;
@@ -1024,77 +1046,77 @@ footer {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: top 0.3s ease-in-out;
     }
-
+    
     .nav-menu.active {
         top: 100%;
     }
-
+    
     .nav-link {
         color: var(--accent-color);
     }
-
+    
     .nav-link:hover {
         color: var(--accent-color);
     }
-
+    
     .nav-list {
         flex-direction: column;
         gap: 20px;
     }
-
+    
     .nav-toggle {
         display: flex;
         flex-direction: column;
     }
-
+    
     .line-one.active {
         transform: rotate(-45deg) translateY(10px);
         width: 100%;
     }
-
+    
     .line-two.active {
         width: 0;
         opacity: 0;
     }
-
+    
     .line-three.active {
         transform: rotate(45deg) translateY(-10px);
         width: 100%;
     }
-
+    
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-
+    
     .about-content {
         grid-template-columns: 1fr
     }
-
+    
     .testimonial {
         padding: 30px 20px;
     }
-
+    
     .testimonials {
         padding: 80px 0;
     }
-
+    
     .contact-container {
         grid-template-columns: 1fr;
     }
-
+    
     .footer-container {
         flex-direction: column;
     }
-
+    
     #CoffeShop {
         max-width: 900px;
     }
-
+    
     .hero-title {
         font-size: 2rem;
     }
-
+    
     .section-title {
         font-size: 2rem;
     }
