@@ -13,3 +13,5 @@ Simple landing pages coffe built for learning purposes.
 
 ## 📷 Screenshots
 (Add later)
+
+## _Last updated: January 2026_
